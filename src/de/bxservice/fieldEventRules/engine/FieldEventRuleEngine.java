@@ -81,6 +81,7 @@ public class FieldEventRuleEngine {
 		List<MBXSFieldEventRule> rules = FieldEventRuleCache.get().getRulesByColumnId(adColumnId);
 
 		FieldEventResult.Builder result = new FieldEventResult.Builder();
+		
 		//fauzan - 2026-06-26
 		
 		Map<Integer, Map<String, Object>> crossTable = new LinkedHashMap<>();
