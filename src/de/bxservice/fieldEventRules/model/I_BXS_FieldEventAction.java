@@ -79,19 +79,9 @@ public interface I_BXS_FieldEventAction
 	  * Table to create a new related record in (cross-table actions)
 	  */
 	public int getAD_Target_Table_ID();
+	
 
-    /** Column name AD_Target_Column_ID */
-    public static final String COLUMNNAME_AD_Target_Column_ID = "AD_Target_Column_ID";
 
-	/** Set Target Column.
-	  * Column in the target table to write the value into (cross-table actions)
-	  */
-	public void setAD_Target_Column_ID (int AD_Target_Column_ID);
-
-	/** Get Target Column.
-	  * Column in the target table to write the value into (cross-table actions)
-	  */
-	public int getAD_Target_Column_ID();
 
     /** Column name AD_Org_ID */
     public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";

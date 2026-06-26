@@ -98,11 +98,10 @@ public class FieldEventRuleEngine {
 			} else {
 				List<MBXSFieldEventAction> actions = FieldEventRuleCache.get().getActionsByRuleId(rule.get_ID());
 				for (MBXSFieldEventAction action : actions) {
-					if (action.getAD_Target_Table_ID() > 0 && action.getAD_Target_Column_ID() > 0) 
+					if (action.getAD_Target_Table_ID() > 0)
 						collectCrossTableAction(action, rule, ctx, crossTable);
-					
 					else
-					applyAction(action, rule, ctx, result);
+						applyAction(action, rule, ctx, result);
 				}
 					
 			}
@@ -224,7 +223,8 @@ public class FieldEventRuleEngine {
 		
 		if(!ctx.isAfterNew()) return;
 		try {
-			String colName = MColumn.getColumnName(ctx.getCtx(), action.getAD_Target_Column_ID());
+			//String colName = MColumn.getColumnName(ctx.getCtx(), action.getAD_Target_Column_ID());
+			String colName = MColumn.getColumnName(ctx.getCtx(), action.getAD_Column_ID());
 			Object value = evaluator.evaluate(action.getBXS_ValueExpression(), ctx);
 			crossTable.computeIfAbsent(action.getAD_Target_Table_ID(), k -> new LinkedHashMap<>()).put(colName, value);
 		} catch (Exception e) {
